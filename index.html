@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MEG 遠征隊：拯救毛丸（統計闖關 RPG）</title>
+  <title>MEG 遠征隊：拯救毛丸</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -11,7 +11,7 @@
     <header class="topbar">
       <div class="title">
         <h1>MEG 遠征隊：拯救毛丸</h1>
-        <p id="subtitle">四關怪物，四種推論。答完才算真的戰鬥完。</p>
+        <p id="subtitle">通過四個怪物關卡，以正確的統計法完成戰鬥。</p>
       </div>
 
       <div class="hud">
@@ -41,7 +41,7 @@
         </div>
 
         <div class="missionBlock">
-          <h3>任務指令（模糊提示）</h3>
+          <h3>任務指令</h3>
           <pre id="missionText" class="missionText"></pre>
         </div>
 
@@ -58,13 +58,13 @@
       <section class="panel input">
         <h2>通關輸入</h2>
         <div class="miniNote" id="miniNote">
-          規則：每次提交只要不是全對就扣 1 生命；錯誤累積 5 次生命歸零。
+          規則：每次送出答案只要不是全對就扣 1 生命；錯誤累積 5 次生命歸零。
         </div>
 
         <div id="inputs"></div>
 
         <label class="field" id="conclusionField">
-          <span>結論敘述（自由輸入，不影響驗證）</span>
+          <span>結論敘述（自由輸入）</span>
           <textarea id="conclusion" rows="6" placeholder="請用 APA 風格寫一小段結論..."></textarea>
         </label>
 
@@ -78,7 +78,7 @@
     </main>
 
     <footer class="footer">
-      <small>提示：數值可允許小數誤差；p 值可輸入 .010 或 0.010。</small>
+      <small>提示：數值可允許小數誤差，可四捨五入；p 值可輸入 .010 或 0.010。</small>
     </footer>
   </div>
 
@@ -99,3 +99,4 @@
   <script src="game.js"></script>
 </body>
 </html>
+
