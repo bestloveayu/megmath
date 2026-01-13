@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MEG 遠征隊：拯救毛丸（統計闖關 RPG）</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app" id="appRoot">
+    <header class="topbar">
+      <div class="title">
+        <h1>MEG 遠征隊：拯救毛丸</h1>
+        <p id="subtitle">四關怪物，四種推論。答完才算真的戰鬥完。</p>
+      </div>
+
+      <div class="hud">
+        <div class="hud-item"><span>勇者</span><strong id="hudName">-</strong></div>
+        <div class="hud-item"><span>關卡</span><strong id="hudLevel">1</strong></div>
+        <div class="hud-item"><span>狀態</span><strong id="hudStatus">健康</strong></div>
+        <div class="hud-item"><span>生命</span><strong id="hudHP">5/5</strong></div>
+        <div class="hud-item"><span>錯誤次數</span><strong id="hudMistakes">0</strong></div>
+        <div class="hud-item"><span>正確欄位</span><strong id="hudCorrect">0</strong></div>
+        <div class="hud-item"><span>需驗證欄位</span><strong id="hudTotal">0</strong></div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel story">
+        <h2 id="levelTitle">關卡標題</h2>
+
+        <div class="monsterCard">
+          <div class="monsterArt" id="monsterArt"><img id="monsterImg" alt="monster" /></div>
+          <div class="monsterInfo">
+            <div class="monsterName" id="monsterName">怪物</div>
+            <div class="hpBar" aria-label="Monster HP">
+              <div class="hpFill" id="hpFill"></div>
+            </div>
+            <div class="hint" id="levelHint">提示會出現在這裡</div>
+          </div>
+        </div>
+
+        <div class="missionBlock">
+          <h3>任務指令（模糊提示）</h3>
+          <pre id="missionText" class="missionText"></pre>
+        </div>
+
+        <div class="questionBlock">
+          <h3>故事</h3>
+          <div id="storyText" class="storyText"></div>
+        </div>
+
+        <div class="navRow">
+          <button id="restartBtn" class="btn danger">🔁 重新挑戰遊戲（從頭）</button>
+        </div>
+      </section>
+
+      <section class="panel input">
+        <h2>通關輸入</h2>
+        <div class="miniNote" id="miniNote">
+          規則：每次提交只要不是全對就扣 1 生命；錯誤累積 5 次生命歸零。
+        </div>
+
+        <div id="inputs"></div>
+
+        <label class="field" id="conclusionField">
+          <span>結論敘述（自由輸入，不影響驗證）</span>
+          <textarea id="conclusion" rows="6" placeholder="請用 APA 風格寫一小段結論..."></textarea>
+        </label>
+
+        <div class="actions">
+          <button id="submitBtn" class="btn primary">⚔️ 提交並戰鬥</button>
+          <button id="resetBtn" class="btn ghost">清空本關輸入</button>
+        </div>
+
+        <div id="resultBox" class="resultBox" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>提示：數值可允許小數誤差；p 值可輸入 .010 或 0.010。</small>
+    </footer>
+  </div>
+
+  <!-- ✅ 全螢幕敘事/回饋 Modal -->
+  <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+    <div class="overlayCard">
+      <div class="overlayBadge" id="overlayBadge">通知</div>
+      <h2 class="overlayTitle" id="overlayTitle">標題</h2>
+      <div class="overlayText" id="overlayText"></div>
+
+      <div id="overlayInputs" class="overlayInputs hidden"></div>
+
+      <div class="overlayActions" id="overlayActions"></div>
+      <div class="overlayFine" id="overlayFine"></div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+:root{
+  --bg:#0b1020;
+  --text:#e9ecff;
+  --muted:#aab2ff;
+  --accent:#8bf7d0;
+  --danger:#ff5d7a;
+  --warn:#ffd166;
+  --ok:#7CFF6B;
+  --line:rgba(255,255,255,.12);
+  --radius:18px;
+}
+
+/* ✅ 全局字體放大 */
+html{ font-size: 18px; }          /* 原本偏小，整體升一級 */
+@media (max-width: 980px){
+  html{ font-size: 17px; }
+}
+@media (max-width: 520px){
+  html{ font-size: 16px; }
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial;
+  background: radial-gradient(1200px 800px at 20% 10%, #18255a 0%, var(--bg) 60%);
+  color:var(--text);
+}
+
+.app{max-width:1200px;margin:0 auto;padding:18px}
+
+body.overlay-on #appRoot{
+  filter: blur(6px) saturate(.9);
+  transform: scale(.99);
+  transition: filter .15s ease, transform .15s ease;
+}
+
+.topbar{
+  display:flex;gap:16px;align-items:flex-start;justify-content:space-between;
+  padding:18px;border:1px solid var(--line);border-radius:var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+}
+
+.title h1{margin:0;font-size:1.5rem}
+.title p{margin:6px 0 0;color:var(--muted);font-size:0.95rem;line-height:1.5}
+
+.hud{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.hud-item{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px 12px;
+  min-width:120px;
+  background:rgba(0,0,0,.18);
+}
+.hud-item span{display:block;color:var(--muted);font-size:0.75rem}
+.hud-item strong{font-size:1.05rem}
+
+.grid{display:grid;grid-template-columns: 1.15fr .85fr;gap:16px;margin-top:16px}
+.panel{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  padding:18px;
+}
+
+.story h2,.input h2{margin:0 0 12px;font-size:1.25rem}
+
+.monsterCard{
+  display:flex;gap:14px;align-items:center;
+  padding:14px;border-radius:16px;background:rgba(0,0,0,.18);
+  border:1px solid var(--line);
+}
+.monsterArt{.monsterArt img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 想完整顯示不裁切 → 改成 contain */
+  border-radius: 18px;
+  display: block;
+}
+
+  width:90px;height:90px;border-radius:18px;
+  display:grid;place-items:center;font-size:2.6rem;
+  background: radial-gradient(80px 60px at 50% 35%, rgba(255,255,255,.18), rgba(255,255,255,.04));
+  border:1px solid var(--line);
+}
+.monsterName{font-weight:700;font-size:1rem}
+.hpBar{margin-top:8px;height:10px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
+.hpFill{height:100%;width:100%;background: linear-gradient(90deg, var(--accent), #4aa3ff)}
+.hint{margin-top:10px;color:var(--muted);font-size:0.9rem;line-height:1.55}
+
+.missionBlock,.questionBlock{margin-top:14px}
+.missionText{
+  white-space:pre-wrap;
+  background:rgba(0,0,0,.22);
+  border:1px solid var(--line);
+  padding:12px;border-radius:14px;
+  color:#d7dbff;
+  font-size:0.95rem;
+  line-height:1.65;
+}
+
+.storyText p{margin:0 0 10px;color:#dfe3ff;line-height:1.85;font-size:1rem}
+.storyText p:last-child{margin-bottom:0}
+.storyText .acad{
+  color:var(--muted);
+  border-left:3px solid rgba(170,178,255,.35);
+  padding-left:10px;
+}
+
+.navRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+.miniNote{
+  margin:10px 0 0;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:rgba(0,0,0,.18);
+  color:var(--muted);
+  font-size:0.9rem;
+  line-height:1.6;
+}
+
+.field{display:block;margin-top:12px}
+.field span{display:block;margin-bottom:6px;color:var(--muted);font-size:0.9rem}
+.field input,.field textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:rgba(0,0,0,.22);
+  color:var(--text);
+  outline:none;
+  font-size:1rem;
+  line-height:1.5;
+}
+.field input:focus,.field textarea:focus{border-color:rgba(139,247,208,.55)}
+
+.actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  border-radius:14px;
+  border:1px solid var(--line);
+  padding:12px 14px;
+  background:rgba(0,0,0,.20);
+  color:var(--text);
+  text-decoration:none;
+  cursor:pointer;
+  font-size:1rem;
+}
+.btn.primary{
+  background: linear-gradient(90deg, rgba(139,247,208,.35), rgba(74,163,255,.22));
+  border-color: rgba(139,247,208,.45);
+}
+.btn.ghost{opacity:.85}
+.btn.danger{
+  background: rgba(255,93,122,.18);
+  border-color: rgba(255,93,122,.55);
+}
+
+.resultBox{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px dashed var(--line);
+  background:rgba(0,0,0,.18);
+  min-height:54px;
+  line-height:1.7;
+  font-size:0.95rem;
+}
+.resultBox.ok{border-color:rgba(124,255,107,.55)}
+.resultBox.warn{border-color:rgba(255,209,102,.55)}
+.resultBox.danger{border-color:rgba(255,93,122,.55)}
+
+.footer{margin-top:14px;color:var(--muted);text-align:center;font-size:0.85rem}
+
+/* feedback */
+@keyframes shake {
+  0% { transform: translate(0,0); }
+  15% { transform: translate(-10px, 0); }
+  30% { transform: translate(10px, 0); }
+  45% { transform: translate(-8px, 0); }
+  60% { transform: translate(8px, 0); }
+  75% { transform: translate(-6px, 0); }
+  90% { transform: translate(6px, 0); }
+  100% { transform: translate(0,0); }
+}
+.shake { animation: shake .45s; }
+
+@keyframes glowOk{
+  0% { box-shadow: 0 0 0 rgba(124,255,107,0); }
+  100% { box-shadow: 0 0 30px rgba(124,255,107,.40); }
+}
+.glow-ok{ animation: glowOk .28s ease; }
+
+@keyframes flashRed{
+  0% { box-shadow: 0 0 0 rgba(255,93,122,0); }
+  100% { box-shadow: 0 0 36px rgba(255,93,122,.42); }
+}
+.flash-red{ animation: flashRed .25s ease; }
+
+/* ✅ Overlay */
+.overlay{
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  padding:20px;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+.overlay.hidden{display:none}
+
+.overlayCard{
+  width:min(920px, 96vw);
+  max-height: min(86vh, 860px);     /* ✅ 不切到：超過就滾動 */
+  overflow:auto;                   /* ✅ 可捲動 */
+  border-radius: 22px;
+  border:1px solid rgba(255,255,255,.16);
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.26));
+  padding: 18px 18px 16px;
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+  text-align:center;
+}
+
+.overlayBadge{
+  display:inline-block;
+  padding:7px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  color: var(--muted);
+  font-size:0.85rem;
+  background: rgba(0,0,0,.22);
+}
+.overlayTitle{
+  margin:12px 0 10px;
+  font-size:1.6rem;
+}
+.overlayText{
+  color:#dfe3ff;
+  line-height:1.9;
+  font-size:1.05rem;
+  text-align:center;
+}
+.overlayText p{margin: 0 0 10px}
+.overlayText p:last-child{margin-bottom:0}
+.overlayText .sub{color: var(--muted); font-size:0.95rem}
+
+.overlayInputs{
+  margin:14px auto 0;
+  max-width:560px;
+  text-align:left;
+}
+
+.overlayActions{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.overlayFine{
+  margin-top:10px;
+  color: var(--muted);
+  font-size:0.85rem;
+}
+
+.table{
+  width:100%;
+  border-collapse: collapse;
+  margin-top:10px;
+  overflow:hidden;
+  border-radius:12px;
+  font-size:0.95rem;               /* ✅ 表格也放大 */
+}
+.table th,.table td{
+  border:1px solid var(--line);
+  padding:10px 10px;
+  text-align:left;
+}
+.table th{color:var(--muted);font-weight:700;background:rgba(255,255,255,.05)}
+
+@media (max-width: 980px){
+  .grid{grid-template-columns:1fr}
+  .hud{justify-content:flex-start}
+}
+
+/* Boss 攻擊：怪物框突進 + 抖動 */
+.monster-attack{
+  animation: monsterAttack 420ms ease-in-out;
+}
+
+@keyframes monsterAttack{
+  0%   { transform: translateX(0) scale(1); }
+  20%  { transform: translateX(10px) scale(1.03); }
+  45%  { transform: translateX(-16px) scale(1.05); }
+  70%  { transform: translateX(8px) scale(1.02); }
+  100% { transform: translateX(0) scale(1); }
+}
+
+/* 攻擊閃擊（短暫白光） */
+.hit-flash{
+  position: relative;
+}
+.hit-flash::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.25);
+  opacity: 0;
+  animation: hitFlash 260ms ease-out;
+  pointer-events:none;
+}
+@keyframes hitFlash{
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
